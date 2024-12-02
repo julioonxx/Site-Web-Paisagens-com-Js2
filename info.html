@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações para Turistas</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* Reset global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #313739;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    line-height: 1.6;
+    text-shadow: 2px 2px 4px black;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgb(39, 38, 38);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+h6 {
+    font-size: 3em;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+/* Navbar links */
+.navbar .botons {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    transition: border 0.3s ease;
+}
+
+.nav-links a:hover {
+    border-bottom: 2px solid white;
+}
+
+/* Seções principais */
+.secao-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px 20px;
+    background-size: cover;
+    background-color: #313739;
+    color: white;
+    font-size: 0.6em;
+}
+
+.secao-principal-imagem {
+    padding-left: 5px;
+}
+
+.secao-principal-texto h1 {
+    font-size: 4em;
+    margin: 10px;
+    max-width: 900px;
+}
+
+.centralizado {
+    text-align: center;
+    margin: 40px;
+    max-width: 800px;
+    line-height: 1.5;
+    font-size: 2em;
+}
+
+/* Videos */
+.videos-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.videos iframe {
+    margin: 10px;
+}
+
+/* Paisagens */
+body.paisagens {
+    background-image: url('img/back3.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+}
+
+.secao-paisagens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #000000b2;
+    background-size: cover;
+}
+
+.paisagem {
+    margin-bottom: 5px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.paisagem img {
+    border: 4px solid white;
+    box-shadow: 2px 2px 10px black;
+    margin-bottom: 20px;
+}
+
+.paisagem p {
+    font-size: 1.2em;
+    color: white;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* Informações */
+body.informaçoes {
+    background-image: url('img/newzeland4k.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+}
+
+.info {
+    background-color: #000000bd;
+    background-size: cover;
+    color: rgba(221, 218, 218, 0.945);
+    text-align: left;
+    font-size: 1.3em;
+}
+
+.info ul {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+/* Conteúdo */
+.conteudo {
+    padding: 120px;
+    background-color: #000000bd;
+    background-size: cover;
+    color: rgba(221, 218, 218, 0.945);
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    color: white;
+    font-size: 1.1em;
+}
+
+.text3 {
+    margin-left: 0;
+    margin-right: 40px;
+    margin-top: 30px;
+}
+
+/* Mapa */
+.mapa {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.map-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-conteudo {
+    max-width: 80%;
+    max-height: 80%;
+    margin: auto;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.fechar {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.fechar:hover,
+.fechar:focus {
+    color: #bbb;
+}
+
+/* Botões */
+button, .btn-toggle {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover, .btn-toggle:hover {
+    background-color: #0000007c;
+}
+
+/* Parágrafos */
+p {
+    text-align: justify;
+    font-size: 16px;
+}
+
+/* Galeria de Imagens */
+.galeria-imagens {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.imagem-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.imagem-thumbnail {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 3px solid #fff;
+    transition: transform 0.3s ease;
+}
+
+.imagem-thumbnail:hover {
+    transform: scale(1.1);
+}
+
+/* Feedback Form */
+.formulario-feedback {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.formulario-feedback input, .formulario-feedback textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #fff;
+    background-color: #333;
+    color: #fff;
+    font-size: 1.1em;
+    border-radius: 5px;
+}
+
+.formulario-feedback input[type="submit"] {
+    background-color: #000000;
+    border: none;
+    cursor: pointer;
+}
+
+.formulario-feedback input[type="submit"]:hover {
+    background-color: #000000;
+}
+
+    </style>
+</head>
+<body class="informaçoes">
+    <header>
+        <nav class="navbar">
+            <div class="botons">
+                <h1>Informações para Turistas</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="paisagens.html">Paisagens</a></li>
+                <li><a href="info.html">Informações</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="conteudo">
+        <section class="text3">
+            <h2>Informações Úteis para Turistas</h2>
+            <ul>
+                <li>Melhor época para visitar: Os meses de verão (dezembro a fevereiro) são ideais para explorar as trilhas e atividades ao ar livre.</li>
+                <li>Roupas e Equipamentos: Traga roupas adequadas para o clima variável, além de calçados para trilhas e uma jaqueta impermeável.</li>
+                <li>Aluguel de carros: A melhor maneira de explorar o país é alugando um carro, especialmente para acessar as regiões mais remotas.</li>
+                <li>Moeda: A moeda local é o dólar neozelandês. Cartões de crédito são amplamente aceitos, mas leve algum dinheiro para áreas mais isoladas.</li>
+                <li>Wi-Fi e Internet: O acesso à internet é disponível em grande parte do país, mas em áreas remotas pode ser limitado.</li>
+                <li>Cultura Maori: Não perca a oportunidade de conhecer a rica cultura Maori, que está fortemente presente em diversas regiões.</li>
+            </ul>
+        </section>
+
+        <section class="text3">
+            <h2>Curiosidades sobre a Nova Zelândia</h2>
+            <ul>
+                <li>A Nova Zelândia tem mais ovelhas do que pessoas, com uma proporção de aproximadamente 6 ovelhas por habitante!</li>
+                <li>O país serviu de cenário para a famosa trilogia "O Senhor dos Anéis", atraindo muitos fãs das paisagens icônicas dos filmes.</li>
+                <li>Você pode ser uma das primeiras pessoas do mundo a ver o nascer do sol na região de Gisborne, devido à posição geográfica do país.</li>
+                <li>Os neozelandeses são conhecidos como "Kiwis" um apelido carinhoso que faz referência ao pássaro símbolo do país.</li>
+                <li>Diversidade de paisagens: A Nova Zelândia é conhecida por sua impressionante diversidade de paisagens, que incluem montanhas, florestas, lagos e praias.</li> 
+                <li>Ponto mais alto: O Monte Cook (Aoraki) é o pico mais alto da Nova Zelândia, com 3.724 metros de altura. É um destino popular para alpinistas e caminhantes.</li>
+                <li>Nascido de uma explosão: A Nova Zelândia foi formada por atividades tectônicas, e muitos de seus recursos naturais, como geiseres e fontes termais, são resultado de sua localização no Anel de Fogo do Pacífico.</li>
+            </ul>
+        </section>
+
+        <section class="mapa">
+            <h2>Mapa Interativo</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1k4E1IrYRfQIX88Fcdoa1jbXxkfk2h38&ehbc=2E312F&noprof=1" width="800" height="500"></iframe>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
